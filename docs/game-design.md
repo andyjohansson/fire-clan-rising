@@ -46,6 +46,21 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 
 **Cost tiers:** More advanced ninjas cost more resources to train. The Worker Ninja and Sword Ninja are cheap, while the Master Ninja is the most expensive.
 
+#### Ninja buildings
+
+Each ninja type is trained in its own building, mirroring how each dragon type has its own nest.
+
+| Building | Purpose |
+|----------|---------|
+| Main Fortress | Trains Worker Ninjas and receives gathered resources. The Dragon King Egg must be carried here to win |
+| Dojo | Trains Sword Ninjas |
+| Shooting Range | Trains Shuriken Ninjas |
+| Shadow Temple | Trains Shadow Ninjas |
+| Trap Workshop | Trains Trappers |
+| Temple of Masters | Trains Master Ninjas – the most expensive building |
+| Rice Barn | Grows and stores rice |
+| Watchtower | Shoots at dragons that come close to the base |
+
 ### 4.2 Dragons
 
 1. Build bases in their own way – caves, and nests high up on mountains.
@@ -111,6 +126,6 @@ Each faction gathers its **own resources**, but both factions also compete for *
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
 3. Exact costs for each nest type and ninja type (balanced through playtesting).
-4. Ninja buildings and dragon structures (caves, nests, etc.).
+4. Dragon structures beyond nests (main cave, etc.).
 5. How dragon breeding works in practice (pairing, egg timers, growth time).
 6. Maps and terrain – mountains, height and flying.
