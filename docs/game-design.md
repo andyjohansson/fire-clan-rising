@@ -47,12 +47,12 @@ The eggs are both what the dragons must protect **and** how they grow their army
 
 ## 5. Economy
 
-Each faction gathers its **own resources**, but both factions also compete for a **shared resource** on the map. The shared resource pulls the factions into contact and creates more action.
+Each faction gathers its **own resources**, but both factions also compete for **shared resources** on the map (wood, stone and magic crystals). The shared resources pull the factions into contact and create more action.
 
 | Resource | Gathered by | Used for (draft) |
 |----------|-------------|------------------|
-| Wood     | Ninjas      | Buildings |
-| Stone    | Ninjas      | Buildings |
+| Wood     | Both        | Buildings (ninja bases, dragon caves and nests) |
+| Stone    | Both        | Buildings (ninja bases, dragon caves and nests) |
 | Rice     | Ninjas      | Training ninjas |
 | Meat     | Dragons     | Raising dragon babies (hunted) |
 | Gold     | Dragons     | Hoarded in the caves: dragons near the hoard get stronger and heal faster; also buys upgrades (hotter fire, tougher scales, faster wings) |
@@ -82,9 +82,8 @@ Each faction gathers its **own resources**, but both factions also compete for a
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
-3. What dragons spend to build caves and nests.
-4. Ninja unit types.
-5. Dragon types beyond fire and ice, and what makes each one different.
-6. Ninja buildings and dragon structures (caves, nests, etc.).
-7. How dragon breeding works in practice (pairing, egg timers, growth time).
-8. Maps and terrain – mountains, height and flying.
+3. Ninja unit types.
+4. Dragon types beyond fire and ice, and what makes each one different.
+5. Ninja buildings and dragon structures (caves, nests, etc.).
+6. How dragon breeding works in practice (pairing, egg timers, growth time).
+7. Maps and terrain – mountains, height and flying.
