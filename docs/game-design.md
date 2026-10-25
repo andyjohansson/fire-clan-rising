@@ -57,9 +57,15 @@ The eggs are both what the dragons must protect **and** how they grow their army
 3. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
 4. Possible later upgrades: a rotatable camera, and swapping in nicer models (e.g. free low-poly asset packs).
 
-## 7. Open Questions
+## 7. Technology
 
-1. Technology / game engine.
+1. **Browser game** built with **[Three.js](https://threejs.org/)** for 3D rendering.
+2. Runs directly in the web browser – no installation needed, and easy to share with a link.
+3. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
+
+## 8. Open Questions
+
+1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Resources and economy – what do the factions gather and spend?
 3. Ninja unit types.
 4. Dragon types beyond fire and ice, and what makes each one different.
