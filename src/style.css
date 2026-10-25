@@ -41,3 +41,43 @@ body {
 	font-size: 12px;
 	opacity: 0.85;
 }
+
+#loading {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	background: #1b1d2a;
+	color: #fff;
+	z-index: 10;
+}
+
+#loading h1 {
+	margin: 0;
+	font-size: 32px;
+	letter-spacing: 1px;
+}
+
+#loading-track {
+	width: min(360px, 80vw);
+	height: 10px;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.15);
+	overflow: hidden;
+}
+
+#loading-bar {
+	width: 0;
+	height: 100%;
+	background: #d23a2a;
+	transition: width 0.15s ease-out;
+}
+
+#loading-text {
+	margin: 0;
+	font-size: 13px;
+	opacity: 0.8;
+}

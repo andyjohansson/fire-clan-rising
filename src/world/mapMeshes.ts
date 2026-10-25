@@ -1,6 +1,8 @@
 import * as THREE from 'three';
+import { AssetLoader } from '../assets/AssetLoader';
+import { AssetKey } from '../assets/registry';
 import { createRandom } from '../utils/math';
-import { GameMap } from './GameMap';
+import { GameMap, Tree, TreeKind } from './GameMap';
 import {
 	BRIDGE_DECK,
 	BRIDGE_HALF_LENGTH,
@@ -19,8 +21,6 @@ const COLORS = {
 	stone: new THREE.Color(0xa29a8e),
 	water: 0x3a86d4,
 	wood: 0x8b5a2b,
-	trunk: 0x6b4423,
-	leaves: 0x2f6b34,
 };
 
 export interface MapMeshes {
@@ -29,13 +29,13 @@ export interface MapMeshes {
 	terrain: THREE.Mesh;
 }
 
-export function createMapMeshes(map: GameMap): MapMeshes {
+export function createMapMeshes(map: GameMap, assets: AssetLoader): MapMeshes {
 	const group = new THREE.Group();
 	const terrain = createTerrain(map.size);
 	group.add(terrain);
 	group.add(createWater(map.size));
 	for (const bridge of createBridges()) group.add(bridge);
-	for (const trees of createTrees(map)) group.add(trees);
+	for (const trees of createTrees(map, assets)) group.add(trees);
 	return { group, terrain };
 }
 
@@ -126,41 +126,49 @@ function createBridges(): THREE.Group[] {
 	});
 }
 
-function createTrees(map: GameMap): THREE.InstancedMesh[] {
-	const trunkGeometry = new THREE.CylinderGeometry(0.12, 0.16, 0.6, 5);
-	trunkGeometry.translate(0, 0.3, 0);
-	const leavesGeometry = new THREE.ConeGeometry(0.7, 1.8, 6);
-	leavesGeometry.translate(0, 1.4, 0);
+const TREE_ASSETS: Record<TreeKind, AssetKey> = {
+	pine: 'tree.pine',
+	common: 'tree.common',
+};
 
-	const trunks = new THREE.InstancedMesh(
-		trunkGeometry,
-		new THREE.MeshStandardMaterial({ color: COLORS.trunk, flatShading: true }),
-		map.trees.length,
-	);
-	const leaves = new THREE.InstancedMesh(
-		leavesGeometry,
-		new THREE.MeshStandardMaterial({ color: COLORS.leaves, flatShading: true }),
-		map.trees.length,
-	);
+// Draws all trees with one InstancedMesh per model part, grouped by model variant
+function createTrees(map: GameMap, assets: AssetLoader): THREE.InstancedMesh[] {
+	const groups = new Map<string, { key: AssetKey; variant: number; trees: Tree[] }>();
+	for (const tree of map.trees) {
+		const key = TREE_ASSETS[tree.kind];
+		const variant = tree.variantSeed % assets.variantCount(key);
+		const groupKey = `${key}#${variant}`;
+		let group = groups.get(groupKey);
+		if (!group) {
+			group = { key, variant, trees: [] };
+			groups.set(groupKey, group);
+		}
+		group.trees.push(tree);
+	}
 
-	const random = createRandom(3);
-	const matrix = new THREE.Matrix4();
+	const meshes: THREE.InstancedMesh[] = [];
+	const placement = new THREE.Matrix4();
 	const rotation = new THREE.Quaternion();
 	const up = new THREE.Vector3(0, 1, 0);
-	map.trees.forEach((tree, index) => {
-		rotation.setFromAxisAngle(up, random() * Math.PI * 2);
-		matrix.compose(
-			new THREE.Vector3(tree.x, terrainHeight(tree.x, tree.z), tree.z),
-			rotation,
-			new THREE.Vector3(tree.scale, tree.scale, tree.scale),
-		);
-		trunks.setMatrixAt(index, matrix);
-		leaves.setMatrixAt(index, matrix);
-	});
+	const instance = new THREE.Matrix4();
 
-	for (const mesh of [trunks, leaves]) {
-		mesh.castShadow = true;
-		mesh.receiveShadow = true;
+	for (const { key, variant, trees } of groups.values()) {
+		for (const part of assets.meshParts(key, variant)) {
+			const mesh = new THREE.InstancedMesh(part.geometry, part.material, trees.length);
+			trees.forEach((tree, index) => {
+				rotation.setFromAxisAngle(up, tree.rotation);
+				placement.compose(
+					new THREE.Vector3(tree.x, terrainHeight(tree.x, tree.z), tree.z),
+					rotation,
+					new THREE.Vector3(tree.scale, tree.scale, tree.scale),
+				);
+				instance.multiplyMatrices(placement, part.matrix);
+				mesh.setMatrixAt(index, instance);
+			});
+			mesh.castShadow = true;
+			mesh.receiveShadow = true;
+			meshes.push(mesh);
+		}
 	}
-	return [trunks, leaves];
+	return meshes;
 }

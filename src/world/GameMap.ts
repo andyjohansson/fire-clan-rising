@@ -12,10 +12,16 @@ import {
 // Maximum height difference between neighbouring cells that a unit can walk
 const MAX_STEP = 0.7;
 
+export type TreeKind = 'pine' | 'common';
+
 export interface Tree {
 	x: number;
 	z: number;
+	kind: TreeKind;
+	// Picks one of the model variants for this kind of tree
+	variantSeed: number;
 	scale: number;
+	rotation: number;
 }
 
 export interface Cell {
@@ -131,7 +137,14 @@ export class GameMap {
 			if (bridges.some((b) => Math.hypot(x - b.x, z - b.z) < 7)) continue;
 
 			this.walkable[this.index(i, j)] = 0;
-			this.trees.push({ x, z, scale: 0.8 + random() * 0.6 });
+			this.trees.push({
+				x,
+				z,
+				kind: random() < 0.6 ? 'pine' : 'common',
+				variantSeed: Math.floor(random() * 1000),
+				scale: 0.8 + random() * 0.4,
+				rotation: random() * Math.PI * 2,
+			});
 		}
 	}
 }
