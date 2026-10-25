@@ -4,6 +4,7 @@ import { createRenderer, createScene } from '../render/createScene';
 import { SelectionController } from '../input/SelectionController';
 import { Unit } from '../units/Unit';
 import { createNinjaModel } from '../units/ninjaModel';
+import { AssetLoader } from '../assets/AssetLoader';
 import { GameMap } from '../world/GameMap';
 import { createMapMeshes } from '../world/mapMeshes';
 import { Point, findPath } from '../world/pathfinding';
@@ -22,12 +23,12 @@ export class Game {
 	private markerTime = Infinity;
 	private lastTime = performance.now();
 
-	constructor(container: HTMLElement, selectionBox: HTMLElement) {
+	constructor(container: HTMLElement, selectionBox: HTMLElement, assets: AssetLoader) {
 		this.renderer = createRenderer(container);
 		this.scene = createScene(this.map.size);
 		this.cameraController = new CameraController(this.renderer.domElement, this.map.size, NINJA_VALLEY);
 
-		const mapMeshes = createMapMeshes(this.map);
+		const mapMeshes = createMapMeshes(this.map, assets);
 		this.scene.add(mapMeshes.group);
 
 		for (let n = 0; n < STARTING_NINJAS; n++) {
@@ -59,7 +60,15 @@ export class Game {
 		this.resize();
 	}
 
+	// Compiles all shaders and draws a first frame, so the game appears instantly when started
+	async prepare(): Promise<void> {
+		const camera = this.cameraController.camera;
+		await this.renderer.compileAsync(this.scene, camera);
+		this.renderer.render(this.scene, camera);
+	}
+
 	start(): void {
+		this.lastTime = performance.now();
 		this.renderer.setAnimationLoop(() => this.tick());
 	}
 

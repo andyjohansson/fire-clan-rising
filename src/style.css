@@ -41,3 +41,142 @@ body {
 	font-size: 12px;
 	opacity: 0.85;
 }
+
+@font-face {
+	font-family: 'Shojumaru';
+	src: url('/assets/fonts/Shojumaru-Regular.ttf') format('truetype');
+	font-display: block;
+}
+
+#loading {
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	background: #07081a;
+	color: #fff;
+	transition: opacity 0.9s ease;
+}
+
+#loading.leaving {
+	opacity: 0;
+	pointer-events: none;
+}
+
+#loading-scene {
+	position: absolute;
+	inset: 0;
+}
+
+#loading-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 6vh 16px 7vh;
+	text-align: center;
+	pointer-events: none;
+}
+
+#loading-title h1 {
+	margin: 0;
+	font-family: 'Shojumaru', serif;
+	font-weight: normal;
+	font-size: clamp(34px, 7vw, 84px);
+	letter-spacing: 2px;
+	background: linear-gradient(180deg, #ffe7a3 0%, #ffb347 45%, #e2441c 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	filter: drop-shadow(0 0 18px rgba(255, 110, 30, 0.55)) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.6));
+	animation: title-glow 3s ease-in-out infinite;
+}
+
+#loading-title p {
+	margin: 4px 0 0;
+	font-family: 'Shojumaru', serif;
+	font-size: clamp(14px, 2vw, 22px);
+	letter-spacing: 6px;
+	text-transform: uppercase;
+	color: #f3c58a;
+	opacity: 0.85;
+}
+
+@keyframes title-glow {
+	0%, 100% { filter: drop-shadow(0 0 14px rgba(255, 110, 30, 0.45)) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.6)); }
+	50% { filter: drop-shadow(0 0 26px rgba(255, 140, 40, 0.8)) drop-shadow(0 4px 2px rgba(0, 0, 0, 0.6)); }
+}
+
+#loading-story {
+	margin: 0;
+	min-height: 1.5em;
+	font-size: clamp(16px, 2.2vw, 22px);
+	font-style: italic;
+	color: #f6e3c8;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+	opacity: 0;
+	transform: translateY(6px);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+	/* Sits just below the egg */
+	margin-top: auto;
+	margin-bottom: 4vh;
+}
+
+#loading-story.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#loading-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	min-height: 90px;
+}
+
+#loading-status {
+	margin: 0;
+	font-size: 13px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #f3c58a;
+	opacity: 0.8;
+}
+
+#loading-start {
+	display: none;
+	padding: 14px 40px;
+	border: 2px solid #ffb347;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #e2441c, #9b1f0c);
+	color: #fff4dc;
+	font-family: 'Shojumaru', serif;
+	font-size: 20px;
+	letter-spacing: 2px;
+	cursor: pointer;
+	pointer-events: auto;
+	box-shadow: 0 0 24px rgba(255, 110, 30, 0.6);
+	animation: start-pulse 1.6s ease-in-out infinite;
+}
+
+#loading-start:hover,
+#loading-start:focus-visible {
+	outline: none;
+	background: linear-gradient(180deg, #ff5a28, #b8260e);
+	box-shadow: 0 0 36px rgba(255, 140, 40, 0.9);
+}
+
+#loading.ready #loading-start {
+	display: block;
+}
+
+#loading.error #loading-status {
+	color: #ff8a7a;
+}
+
+@keyframes start-pulse {
+	0%, 100% { transform: scale(1); }
+	50% { transform: scale(1.05); }
+}
