@@ -33,10 +33,21 @@ Then open [http://localhost:5173](http://localhost:5173). The branch name is sho
 	2. No red errors in the browser console (Chrome: `Cmd+Option+J`, Safari: `Cmd+Option+C`).
 	3. The camera moves (WASD / arrows / screen edges) and zooms (mouse wheel).
 	4. Ninjas can be selected (click or drag a box) and moved (right click).
-	5. The game runs smoothly.
+	5. The game runs smoothly. To check the numbers, open the browser console and type `fcr.fps()` (see below).
 3. **Let Benjamin try it** if the change is something he will notice.
 
 PRs that only change GitHub settings or documentation are tested on GitHub instead – the PR says so.
+
+### Developer commands
+
+Typed in the browser console (Chrome: `Cmd+Option+J`, Safari: `Cmd+Option+C`) once the game has started. The game prints `Dev commands: fcr.help()` in the console as a reminder.
+
+| Command | What it does |
+|---------|--------------|
+| `fcr.fps()` | Shows or hides the performance meter in the top-right corner: FPS compared with the display's refresh rate (e.g. `50 / 50 Hz smooth`), frame time with the worst frame, draw calls and triangles. Off by default. |
+
+The browser never draws faster than the display refreshes, so the display's rate (often 60 Hz, sometimes 50, 120 or 144 Hz) is the best possible FPS. The meter rates FPS against it: green **smooth** at 90 % or more, yellow **ok** at 50–90 %, red **slow** below 50 %.
+| `fcr.help()` | Lists all developer commands. |
 
 ## 4. Approve or report
 

@@ -5,6 +5,7 @@ import { SelectionController } from '../input/SelectionController';
 import { Unit } from '../units/Unit';
 import { createNinjaModel } from '../units/ninjaModel';
 import { AssetLoader } from '../assets/AssetLoader';
+import { FpsMeter } from '../ui/FpsMeter';
 import { GameMap } from '../world/GameMap';
 import { createMapMeshes } from '../world/mapMeshes';
 import { Point, findPath } from '../world/pathfinding';
@@ -23,7 +24,12 @@ export class Game {
 	private markerTime = Infinity;
 	private lastTime = performance.now();
 
-	constructor(container: HTMLElement, selectionBox: HTMLElement, assets: AssetLoader) {
+	constructor(
+		container: HTMLElement,
+		selectionBox: HTMLElement,
+		assets: AssetLoader,
+		private readonly fpsMeter: FpsMeter,
+	) {
 		this.renderer = createRenderer(container);
 		this.scene = createScene(this.map.size);
 		this.cameraController = new CameraController(this.renderer.domElement, this.map.size, NINJA_VALLEY);
@@ -161,6 +167,7 @@ export class Game {
 		this.updateMoveMarker(dt);
 
 		this.renderer.render(this.scene, this.cameraController.camera);
+		this.fpsMeter.update(this.renderer.info);
 	}
 
 	private updateMoveMarker(dt: number): void {
