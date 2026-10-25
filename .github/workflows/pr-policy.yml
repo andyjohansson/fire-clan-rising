@@ -1,0 +1,48 @@
+name: PR policy
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches: [dev, main]
+
+permissions:
+  contents: read
+
+jobs:
+  branch-policy:
+    name: branch-policy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source and target branch
+        env:
+          BASE: ${{ github.event.pull_request.base.ref }}
+          HEAD: ${{ github.event.pull_request.head.ref }}
+        run: |
+          echo "Pull request: $HEAD -> $BASE"
+          if [ "$BASE" = "main" ]; then
+            if [ "$HEAD" != "dev" ]; then
+              echo "::error::Pull requests into main must come from dev."
+              exit 1
+            fi
+          elif [ "$BASE" = "dev" ]; then
+            if ! echo "$HEAD" | grep -Eq '^(feature|fix)/issue-[0-9]+-[a-z0-9-]+$'; then
+              echo "::error::Pull requests into dev must come from a branch named feature/issue-<number>-<slug> or fix/issue-<number>-<slug>."
+              exit 1
+            fi
+          fi
+          echo "Branch policy OK"
+
+  tested-by-andy:
+    name: tested-by-andy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the pull request has been tested
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if printf '%s' "$BODY" | grep -Eiq -- '- \[x\] \*\*Tested by Andy\*\*'; then
+            echo "Tested by Andy: OK"
+          else
+            echo "::error::Tick the 'Tested by Andy' checkbox in the pull request description after testing."
+            exit 1
+          fi
