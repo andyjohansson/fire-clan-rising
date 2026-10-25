@@ -56,7 +56,7 @@ Each faction gathers its **own resources**, but both factions also compete for a
 | Rice     | Ninjas      | Training ninjas |
 | Meat     | Dragons     | Raising dragon babies (hunted) |
 | Gold     | Dragons     | Treasure hoarded in the caves |
-| Magic crystals | Both  | To be decided – something powerful worth fighting over |
+| Magic crystals | Both  | Strongest units (both factions); magic shield around the Dragon King Egg (dragons) |
 
 ## 6. Game Modes
 
@@ -79,7 +79,7 @@ Each faction gathers its **own resources**, but both factions also compete for a
 ## 9. Open Questions
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
-2. What magic crystals are used for, and how gold benefits the dragons.
+2. How gold benefits the dragons, and how the egg shield works (duration, cost, how ninjas break it).
 3. Ninja unit types.
 4. Dragon types beyond fire and ice, and what makes each one different.
 5. Ninja buildings and dragon structures (caves, nests, etc.).
