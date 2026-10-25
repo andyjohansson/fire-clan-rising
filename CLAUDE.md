@@ -26,7 +26,7 @@ A real-time strategy browser game where ninjas fight dragons, built by Andy toge
 
 All work is tracked in GitHub issues and the project board. The board is the single source of truth for what is planned, in progress and done. Local files never hold task state.
 
-1. **Board:** [Fire Clan Rising project](https://github.com/users/andyjohansson/projects/1) (columns: Todo, In Progress, Done)
+1. **Board:** [Fire Clan Rising project](https://github.com/users/andyjohansson/projects/1) (columns: Todo, In Progress, Testing, Done)
 2. **Milestones:** [github.com/andyjohansson/fire-clan-rising/milestones](https://github.com/andyjohansson/fire-clan-rising/milestones) – one per roadmap step.
 3. **Repository:** `andyjohansson/fire-clan-rising`
 
@@ -40,7 +40,7 @@ All work is tracked in GitHub issues and the project board. The board is the sin
 	2. Add a comment for important decisions, changes of plan, blockers, and what was verified.
 	3. New work discovered along the way becomes a new issue (on the board, with a milestone), not an unrecorded side task.
 5. **Reference the issue in every commit**, e.g. `Add asset registry (#1)`. The pull request description uses `Closes #1`, so the issue closes when the PR is merged.
-6. **Finish properly.** When the work is done: all checklist items ticked and a short comment summarising what was done and how it was verified. The issue stays **In Progress** until Andy merges the PR; the merge closes it, and then its Status is set to **Done**.
+6. **Finish properly.** When the work is done: all checklist items ticked and a short comment summarising what was done and how it was verified. When the PR is opened, set the Status to **Testing**. When the PR is merged, the issue closes and its Status is set to **Done**. If Andy finds a problem, move it back to **In Progress** while fixing.
 7. **Keep docs in sync.** When a milestone is completed, update [docs/roadmap.md](docs/roadmap.md). When design decisions change, update [docs/game-design.md](docs/game-design.md) in the same piece of work.
 8. **Ask before pushing** to the remote.
 
@@ -93,6 +93,7 @@ Project and field IDs for `gh project item-edit`:
 | Status field | `PVTSSF_lAHOAEvRM84BoogRzhnHrcw` |
 | Todo | `f75ad846` |
 | In Progress | `47fc9ee4` |
+| Testing | `06a73d1b` |
 | Done | `98236657` |
 
 ```bash
