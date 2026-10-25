@@ -30,8 +30,19 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 ### 4.1 Ninjas
 
 1. Build bases, in the classic RTS style.
-2. Train different types of ninjas in their base (unit types to be designed).
+2. Train different types of ninjas in their base (see unit types below).
 3. Goal: infiltrate the dragon territory and steal the Dragon King Egg.
+
+#### Ninja unit types
+
+| Unit | Role |
+|------|------|
+| Worker Ninja | Gathers resources and constructs buildings |
+| Sword Ninja | Basic melee fighter – cheap and quick to train |
+| Shuriken Ninja | Ranged attacker – throws stars and can hit flying dragons |
+| Shadow Ninja | Can sneak around invisible – ideal for stealing the egg |
+| Master Ninja | The strongest ninja – costs magic crystals |
+| Trapper | Places nets and traps that hold dragons in place for a while |
 
 ### 4.2 Dragons
 
@@ -82,8 +93,7 @@ Each faction gathers its **own resources**, but both factions also compete for *
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
-3. Ninja unit types.
-4. Dragon types beyond fire and ice, and what makes each one different.
-5. Ninja buildings and dragon structures (caves, nests, etc.).
-6. How dragon breeding works in practice (pairing, egg timers, growth time).
-7. Maps and terrain – mountains, height and flying.
+3. Dragon types beyond fire and ice, and what makes each one different.
+4. Ninja buildings and dragon structures (caves, nests, etc.).
+5. How dragon breeding works in practice (pairing, egg timers, growth time).
+6. Maps and terrain – mountains, height and flying.
