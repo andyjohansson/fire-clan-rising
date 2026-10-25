@@ -15,12 +15,19 @@ Play as the **Ninjas** against a computer-controlled **Dragon** opponent.
 
 ### Milestones
 
-- [x] **1. Foundation** – project setup, 3D map, camera, selecting and moving units with the mouse.
-- [ ] **1b. Visuals and map** – CC0 model packs and asset registry, better lighting, textured 256×256 terrain with a richer layout and a winding mountain path, stylized water, fog of war, minimap, animated ninjas.
-- [ ] **2. Combat** – units attack and damage each other.
-- [ ] **3. Economy and building** – gathering resources, constructing buildings, training units.
-- [ ] **4. The egg** – carrying and dropping the egg, the egg timer, winning and losing.
-- [ ] **5. Dragon AI** – the computer controls the dragons.
+The detailed backlog lives on GitHub:
+
+1. **Kanban board:** [Fire Clan Rising project](https://github.com/users/andyjohansson/projects/1)
+2. **Milestones and progress:** [GitHub milestones](https://github.com/andyjohansson/fire-clan-rising/milestones)
+
+| Milestone | Summary |
+|-----------|---------|
+| 1. Foundation (done) | Project setup, 3D map, camera, selecting and moving units with the mouse |
+| [1b. Visuals and map](https://github.com/andyjohansson/fire-clan-rising/milestone/1) | CC0 models and asset registry, lighting, 256×256 terrain with a richer layout, water, fog of war, minimap, animated ninjas |
+| [2. Combat](https://github.com/andyjohansson/fire-clan-rising/milestone/2) | Units attack and damage each other |
+| [3. Economy and building](https://github.com/andyjohansson/fire-clan-rising/milestone/3) | Gathering resources, constructing buildings, training units |
+| [4. The egg](https://github.com/andyjohansson/fire-clan-rising/milestone/4) | Carrying and dropping the egg, the egg timer, winning and losing |
+| [5. Dragon AI](https://github.com/andyjohansson/fire-clan-rising/milestone/5) | The computer controls the dragons |
 
 ## Later versions
 
