@@ -1,6 +1,6 @@
 # Testing a pull request
 
-Every pull request is tested by Andy before it is merged. This guide explains how. Each PR also has a **How to test** section with the exact steps for that change.
+Every pull request is tested and approved by Andy before Claude merges it. Normally Claude prepares everything (switches the branch, starts the game, opens it) and gives you a short checklist in the chat – this guide is the manual fallback. Each PR also has a **How to test** section with the exact steps for that change.
 
 ## 1. Get the branch
 
@@ -44,24 +44,12 @@ PRs that only change GitHub settings or documentation are tested on GitHub inste
 
 ## 4. Approve or report
 
-**Everything works:**
+Give your verdict to Claude in the chat:
 
-1. Open the PR on GitHub and tick **Tested by Andy** in the description (click the checkbox).
-2. Wait a few seconds until the `tested-by-andy` check turns green.
-3. Click **Squash and merge** (or **Create a merge commit** for `dev` → `main`) and confirm.
-4. The linked issue closes automatically.
+**Everything works:** say so (e.g. "looks good, merge it"). Claude then ticks **Tested by Andy** in the PR, waits for the checks to pass, merges, and the linked issue closes automatically.
 
-**Something is wrong:**
-
-1. Do not tick the checkbox.
-2. Write a comment on the PR: what you did, what happened, and what you expected. A screenshot helps.
-3. Claude fixes it on the same branch, and you test again.
+**Something is wrong:** describe what you did, what happened, and what you expected – a screenshot helps. Claude fixes it on the same branch, and you test again.
 
 ## 5. Back to dev
 
-After merging, switch back to the latest `dev`:
-
-```bash
-git switch dev
-git pull
-```
+After merging, Claude switches your local copy back to the latest `dev`.
