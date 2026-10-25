@@ -45,28 +45,41 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 
 The eggs are both what the dragons must protect **and** how they grow their army. Every egg the ninjas destroy is a dragon that will never be born.
 
-## 5. Game Modes
+## 5. Economy
+
+Each faction gathers its **own resources**, but both factions also compete for a **shared resource** on the map. The shared resource pulls the factions into contact and creates more action.
+
+| Resource | Gathered by | Used for (draft) |
+|----------|-------------|------------------|
+| Wood     | Ninjas      | Buildings |
+| Stone    | Ninjas      | Buildings |
+| Rice     | Ninjas      | Training ninjas |
+| Meat     | Dragons     | Raising dragon babies (hunted) |
+| Gold     | Dragons     | Treasure hoarded in the caves |
+| Magic crystals | Both  | To be decided – something powerful worth fighting over |
+
+## 6. Game Modes
 
 1. **Single player vs. computer** – first priority. Requires a computer opponent (AI) for both factions.
 2. **Multiplayer** – planned for later.
 
-## 6. Visual Style
+## 7. Visual Style
 
 1. **3D world with a fixed camera** at an oblique angle from above. It looks like a classic isometric RTS, but is real 3D under the hood.
 2. **Simple shapes (low-poly)** – units and buildings are built in code from basic primitives (spheres, cones, boxes). No hand-drawn sprites needed.
 3. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
 4. Possible later upgrades: a rotatable camera, and swapping in nicer models (e.g. free low-poly asset packs).
 
-## 7. Technology
+## 8. Technology
 
 1. **Browser game** built with **[Three.js](https://threejs.org/)** for 3D rendering.
 2. Runs directly in the web browser – no installation needed, and easy to share with a link.
 3. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
 
-## 8. Open Questions
+## 9. Open Questions
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
-2. Resources and economy – what do the factions gather and spend?
+2. What magic crystals are used for, and how gold benefits the dragons.
 3. Ninja unit types.
 4. Dragon types beyond fire and ice, and what makes each one different.
 5. Ninja buildings and dragon structures (caves, nests, etc.).
