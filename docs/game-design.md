@@ -142,15 +142,28 @@ Each faction gathers its **own resources**, but both factions also compete for *
 
 ## 6. Map
 
-The first map, with the bases in opposite corners:
+The first map is **256×256 cells** – large enough that it takes roughly 1.5–2 minutes to walk between the bases, so both sides can build up and explore before they meet. The bases are in opposite corners:
 
-1. **Dragon Mountain** – in one corner, high up. The Dragon King's Cave sits on the summit, reachable only by a few narrow paths, so ninjas must fight their way up them or climb.
+1. **Dragon Mountain** – in one corner, high up. The Dragon King's Cave sits on the summit, reachable by a **narrow path that winds around the mountain**, so ninjas must fight their way up.
 2. **Ninja Valley** – in the opposite corner. Flat, with plenty of room to build.
 3. **Forest** – in the middle, with wood and animals to hunt.
 4. **Stone quarries** – scattered across the map.
 5. **Gold mines** – near Dragon Mountain.
 6. **Crystal fields** – halfway between the bases, so both factions must fight over them.
 7. **River** – crossed by a few bridges and fords. Dragons can fly over it, but ninjas must use the crossings, creating natural battle points.
+
+Each side also gets a **home area** with enough resources to build up safely, and the map has **expansion sites** further out with richer resources worth taking risks for. There are **several routes** between the bases (past lakes, through ravines, over bridges and fords), and the map is filled with detail: different trees, rocks, bushes and grass.
+
+### 6.1 Fog of war
+
+Like the original Red Alert and Command & Conquer: areas that have never been explored are **black**. Once an area has been seen by a unit or building, it stays revealed, including enemy units there.
+
+### 6.2 Minimap
+
+A minimap in the corner of the screen, like in Red Alert and StarCraft:
+
+1. Shows the terrain, units as dots, the fog of war, and a frame for what the camera sees.
+2. Left click on the minimap moves the camera; right click sends the selected units there.
 
 ## 7. Balance Principles
 
@@ -173,17 +186,20 @@ The full design is large (6 ninja types, 7 dragon types, 8 ninja buildings, 13 d
 
 ## 10. Visual Style
 
-1. **3D world with a fixed camera** at an oblique angle from above. It looks like a classic isometric RTS, but is real 3D under the hood.
-2. **Simple shapes (low-poly)** – units and buildings are built in code from basic primitives (spheres, cones, boxes). No hand-drawn sprites needed.
-3. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
-4. Possible later upgrades: a rotatable camera, and swapping in nicer models (e.g. free low-poly asset packs).
+1. **3D world with a fixed camera** at an oblique angle from above, like a classic RTS.
+2. **Stylized and colourful** – think Warcraft III, Northgard or Age of Empires IV. A more realistic style (StarCraft II, C&C 3) may come later.
+3. **Real 3D models** from free CC0 asset packs (animated characters, nature, buildings) instead of shapes built in code.
+4. **Asset registry** – every game object (e.g. "Sword Ninja", "pine tree") points to a model file through one registry, so the art style can be swapped later without rewriting game code.
+5. **Textured terrain** blending grass, dirt, rock and sand by slope and height, with visible paths.
+6. **Lighting and atmosphere** – filmic tone mapping, soft shadows, ambient occlusion, sky gradient and distance haze.
+7. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
 
 ## 11. Technology
 
 1. **Browser game** built with **[Three.js](https://threejs.org/)** for 3D rendering.
 2. Written in **TypeScript**, with **[Vite](https://vite.dev/)** as dev server and build tool.
 3. Runs directly in the web browser – no installation needed, and easy to share with a link.
-4. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
+4. Models are loaded as glTF files through the asset registry.
 
 ## 12. Open Questions
 
