@@ -42,6 +42,29 @@ body {
 	opacity: 0.85;
 }
 
+#fps-meter {
+	position: fixed;
+	top: 12px;
+	right: 12px;
+	display: none;
+	padding: 6px 10px;
+	border-radius: 6px;
+	background: rgba(20, 20, 30, 0.6);
+	color: #fff;
+	font: 12px/1.5 ui-monospace, Menlo, monospace;
+	pointer-events: none;
+}
+
+#fps-meter .fps-label {
+	display: inline-block;
+	width: 44px;
+	opacity: 0.7;
+}
+
+#fps-value {
+	font-weight: bold;
+}
+
 @font-face {
 	font-family: 'Shojumaru';
 	src: url('/assets/fonts/Shojumaru-Regular.ttf') format('truetype');
