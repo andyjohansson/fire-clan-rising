@@ -44,13 +44,15 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 | Master Ninja | The strongest ninja – costs magic crystals |
 | Trapper | Places nets and traps that hold dragons in place for a while |
 
+**Cost tiers:** More advanced ninjas cost more resources to train. The Worker Ninja and Sword Ninja are cheap, while the Master Ninja is the most expensive.
+
 ### 4.2 Dragons
 
 1. Build bases in their own way – caves, and nests high up on mountains.
 2. Have **male and female dragons**. Only females can lay eggs, and they need a nest to do it.
 3. Eggs hatch into **dragon babies**, which grow up into **adult dragons**.
 4. **Dragon babies are the workers** – they gather wood, stone and meat, and build caves and nests until they grow up.
-5. Come in different types (see dragon types below).
+5. Come in different types (see dragon types below). **The nest decides the type**: each dragon type has its own kind of nest (fire nest, ice nest, etc.), and eggs laid there hatch into that type.
 6. Attack by breathing fire (or other elements) and tearing down ninja structures.
 
 #### Dragon types
@@ -64,6 +66,8 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 | Poison Dragon | Breathes a poison cloud that damages every ninja passing through |
 | Shadow Dragon | Can see invisible Shadow Ninjas – the dragons' counter-move |
 | Giant Dragon | The strongest dragon – costs magic crystals. Counterpart to the Master Ninja |
+
+**Cost tiers:** Better nests cost more resources to build. A fire or ice nest is cheap, while a Giant Dragon nest is the most expensive.
 
 ### 4.3 Core tension
 
@@ -106,7 +110,7 @@ Each faction gathers its **own resources**, but both factions also compete for *
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
-3. Which dragon types can be male/female, and how a baby's type is decided.
+3. Exact costs for each nest type and ninja type (balanced through playtesting).
 4. Ninja buildings and dragon structures (caves, nests, etc.).
 5. How dragon breeding works in practice (pairing, egg timers, growth time).
 6. Maps and terrain – mountains, height and flying.
