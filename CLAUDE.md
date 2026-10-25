@@ -6,6 +6,7 @@ A real-time strategy browser game where ninjas fight dragons, built by Andy toge
 
 1. [docs/game-design.md](docs/game-design.md) – the game design: story, factions, economy, map, balance principles.
 2. [docs/roadmap.md](docs/roadmap.md) – version scope and milestone overview, linking to GitHub.
+3. [CREDITS.md](CREDITS.md) – sources and licenses for all third-party assets and libraries. Update it whenever an asset or shipped library is added.
 
 ## Tech stack and commands
 
@@ -31,17 +32,50 @@ All work is tracked in GitHub issues and the project board. The board is the sin
 
 ### Rules
 
-1. **No work without an issue.** Before changing code or docs, make sure there is an issue for the work, linked to the right milestone and added to the board. If none exists, create it (and ask Andy first if the work is not already agreed).
+1. **No work without an issue.** Before changing code or docs, make sure there is an issue for the work, added to the board and linked to a milestone when one fits. If none exists, create it (and ask Andy first if the work is not already agreed).
 2. **Read before starting.** Read the issue body and comments first; they are the spec and the record of decisions.
 3. **Move the card when starting.** Set the issue's Status to **In Progress** as soon as work begins. Only the issues actually being worked on should be In Progress.
 4. **Keep the issue updated while working.**
 	1. Tick the checklist items in the issue body as they are completed.
 	2. Add a comment for important decisions, changes of plan, blockers, and what was verified.
 	3. New work discovered along the way becomes a new issue (on the board, with a milestone), not an unrecorded side task.
-5. **Reference the issue in every commit**, e.g. `Add asset registry (#1)`. The commit that completes an issue uses `Closes #1`.
-6. **Finish properly.** When an issue is done: all checklist items ticked, a short closing comment summarising what was done and how it was verified, Status set to **Done**, and the issue closed.
+5. **Reference the issue in every commit**, e.g. `Add asset registry (#1)`. The pull request description uses `Closes #1`, so the issue closes when the PR is merged.
+6. **Finish properly.** When the work is done: all checklist items ticked and a short comment summarising what was done and how it was verified. The issue stays **In Progress** until Andy merges the PR; the merge closes it, and then its Status is set to **Done**.
 7. **Keep docs in sync.** When a milestone is completed, update [docs/roadmap.md](docs/roadmap.md). When design decisions change, update [docs/game-design.md](docs/game-design.md) in the same piece of work.
 8. **Ask before pushing** to the remote.
+
+## Branches and pull requests
+
+### Branch model
+
+```
+main  ← releases, only updated by merging dev
+ └ dev  ← integration branch (default branch on GitHub)
+    └ feature/issue-<number>-<slug>  ← one branch per issue, e.g. feature/issue-1-asset-registry
+    └ fix/issue-<number>-<slug>      ← for bug fixes
+```
+
+### Rules
+
+1. **Never commit directly to `main` or `dev`.** Every issue gets its own branch, created from the latest `dev`.
+2. **One issue per branch, one branch per pull request.** If the work grows, split it into a new issue and branch.
+3. **Pull requests:** feature/fix branch → `dev`; `dev` → `main` when a milestone is completed. Fill in the PR template. The **How to test** section must give Andy numbered, step-by-step instructions with the expected result of each step – concrete enough to follow without knowing the code. The general routine is in [docs/testing.md](docs/testing.md).
+4. **Andy approves, Claude merges.** Claude opens the PR with the **Tested by Andy** checkbox unticked. Andy tests and gives his verdict in the chat. Only after Andy has explicitly approved the PR in the chat does Claude tick **Tested by Andy**, wait for all checks to pass, and merge. Never tick the box or merge without Andy's approval of that specific PR.
+5. **Make testing effortless for Andy.** When a PR is ready, Claude prepares everything so Andy only has to look and click:
+	1. Switch the local checkout to the PR branch, run `npm install` if dependencies changed, and make sure the dev server is running.
+	2. Open the game in the Browser pane (or the PR page, for PRs without game changes).
+	3. Give Andy a short checklist in Swedish in the chat: what to look at and what should happen – a few lines, no commands to type.
+	4. After merging, switch the local checkout back to `dev`, pull, and set the issue's Status to **Done** on the board.
+6. **Merge methods:** "Squash and merge" for feature/fix → `dev`; "Create a merge commit" for `dev` → `main`.
+7. **Keep branches current:** before opening a PR, update the branch with the latest `dev`.
+
+### Enforced on GitHub
+
+1. Rulesets protect `main` and `dev`: changes only through pull requests, no force pushes, no deletion.
+2. Required checks before merging:
+	1. `build` – typecheck and production build ([ci.yml](.github/workflows/ci.yml)).
+	2. `branch-policy` – PRs into `main` must come from `dev`; PRs into `dev` must come from `feature/issue-…` or `fix/issue-…` ([pr-policy.yml](.github/workflows/pr-policy.yml)).
+	3. `tested-by-andy` – the **Tested by Andy** checkbox in the PR description must be ticked (by Claude, after Andy's approval in the chat) ([pr-policy.yml](.github/workflows/pr-policy.yml)).
 
 ### Board commands
 
