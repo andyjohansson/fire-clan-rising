@@ -1,0 +1,42 @@
+name: PR preview
+
+# Builds every pull request and publishes it on GitHub Pages under pr-preview/pr-<number>/.
+# The link is posted as a comment on the PR, and the preview is removed when the PR closes.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    branches: [dev, main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Deployments to the gh-pages branch run one at a time
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    name: preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: github.event.action != 'closed'
+        with:
+          node-version: 24
+          cache: npm
+      - name: Build
+        if: github.event.action != 'closed'
+        run: |
+          npm ci
+          npm run build
+          touch dist/.nojekyll
+      - uses: rossjrw/pr-preview-action@ffa7509e91a3ec8dfc2e5536c4d5c1acdf7a6de9 # v1.8.1
+        with:
+          source-dir: ./dist
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          qr-code: 'false'

@@ -1,0 +1,39 @@
+name: Deploy dev
+
+# Publishes the latest dev branch at the root of the GitHub Pages site,
+# keeping the PR previews in pr-preview/ untouched.
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Deployments to the gh-pages branch run one at a time
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy-dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+          touch dist/.nojekyll
+      - uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
+        with:
+          branch: gh-pages
+          folder: dist
+          clean-exclude: pr-preview/
+          commit-message: Deploy dev ${{ github.sha }}

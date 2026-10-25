@@ -62,12 +62,18 @@ main  ← releases, only updated by merging dev
 3. **Pull requests:** feature/fix branch → `dev`; `dev` → `main` when a milestone is completed. Fill in the PR template. The **How to test** section must give Andy numbered, step-by-step instructions with the expected result of each step – concrete enough to follow without knowing the code. The general routine is in [docs/testing.md](docs/testing.md).
 4. **Andy approves, Claude merges.** Claude opens the PR with the **Tested** checkbox unticked. Andy tests and gives his verdict in the chat. Only after Andy has explicitly approved the PR in the chat does Claude tick **Tested**, wait for all checks to pass, and merge. Never tick the box or merge without Andy's approval of that specific PR.
 5. **Make testing effortless for Andy.** When a PR is ready, Claude prepares everything so Andy only has to look and click:
-	1. Switch the local checkout to the PR branch, run `npm install` if dependencies changed, and make sure the dev server is running.
-	2. Open the game in the Browser pane (or the PR page, for PRs without game changes).
+	1. Wait for the `preview` check and give Andy the **preview link** (`https://andyjohansson.github.io/fire-clan-rising/pr-preview/pr-<number>/`).
+	2. Also switch the local checkout to the PR branch (with `npm install` if dependencies changed) and make sure the dev server is running, as a fallback.
 	3. Give Andy a short checklist in Swedish in the chat: what to look at and what should happen – a few lines, no commands to type.
 	4. After merging, switch the local checkout back to `dev`, pull, and set the issue's Status to **Done** on the board.
 6. **Merge methods:** "Squash and merge" for feature/fix → `dev`; "Create a merge commit" for `dev` → `main`.
 7. **Keep branches current:** before opening a PR, update the branch with the latest `dev`.
+
+### Previews and deployment
+
+1. Every PR is built and published as a preview on GitHub Pages ([preview.yml](.github/workflows/preview.yml)); the link is posted on the PR and the preview is removed when the PR closes.
+2. Every push to `dev` is published at [andyjohansson.github.io/fire-clan-rising](https://andyjohansson.github.io/fire-clan-rising/) ([deploy-dev.yml](.github/workflows/deploy-dev.yml)).
+3. Vite uses a relative `base`, so the same build works at any URL. Reference files in `public/` with `import.meta.env.BASE_URL`, never a hard-coded `/`.
 
 ### Enforced on GitHub
 
