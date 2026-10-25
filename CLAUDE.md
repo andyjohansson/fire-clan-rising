@@ -59,7 +59,7 @@ main  ← releases, only updated by merging dev
 
 1. **Never commit directly to `main` or `dev`.** Every issue gets its own branch, created from the latest `dev`.
 2. **One issue per branch, one branch per pull request.** If the work grows, split it into a new issue and branch.
-3. **Pull requests:** feature/fix branch → `dev`; `dev` → `main` when a milestone is completed. Fill in the PR template, including what Andy should test.
+3. **Pull requests:** feature/fix branch → `dev`; `dev` → `main` when a milestone is completed. Fill in the PR template. The **How to test** section must give Andy numbered, step-by-step instructions with the expected result of each step – concrete enough to follow without knowing the code. The general routine is in [docs/testing.md](docs/testing.md).
 4. **Andy tests and merges – Claude never merges.** Claude opens the PR and always leaves the **Tested by Andy** checkbox unticked. Andy tests the branch, ticks the box and merges.
 5. **Merge methods:** "Squash and merge" for feature/fix → `dev`; "Create a merge commit" for `dev` → `main`.
 6. **Keep branches current:** before opening a PR, update the branch with the latest `dev`.
