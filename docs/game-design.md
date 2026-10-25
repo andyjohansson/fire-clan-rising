@@ -55,7 +55,7 @@ Each faction gathers its **own resources**, but both factions also compete for a
 | Stone    | Ninjas      | Buildings |
 | Rice     | Ninjas      | Training ninjas |
 | Meat     | Dragons     | Raising dragon babies (hunted) |
-| Gold     | Dragons     | Treasure hoarded in the caves |
+| Gold     | Dragons     | Hoarded in the caves: dragons near the hoard get stronger and heal faster; also buys upgrades (hotter fire, tougher scales, faster wings) |
 | Magic crystals | Both  | Strongest units (both factions); magic shield around the Dragon King Egg (dragons) |
 
 **Egg shield:** The dragons can spend magic crystals to put a shield around the Dragon King Egg. The shield blocks the ninjas from taking the egg until they break it by attacking it for long enough.
@@ -81,9 +81,10 @@ Each faction gathers its **own resources**, but both factions also compete for a
 ## 9. Open Questions
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
-2. How gold benefits the dragons, and egg shield details (crystal cost, strength, whether it can be recast).
-3. Ninja unit types.
-4. Dragon types beyond fire and ice, and what makes each one different.
-5. Ninja buildings and dragon structures (caves, nests, etc.).
-6. How dragon breeding works in practice (pairing, egg timers, growth time).
-7. Maps and terrain – mountains, height and flying.
+2. Egg shield details (crystal cost, strength, whether it can be recast).
+3. What dragons spend to build caves and nests.
+4. Ninja unit types.
+5. Dragon types beyond fire and ice, and what makes each one different.
+6. Ninja buildings and dragon structures (caves, nests, etc.).
+7. How dragon breeding works in practice (pairing, egg timers, growth time).
+8. Maps and terrain – mountains, height and flying.
