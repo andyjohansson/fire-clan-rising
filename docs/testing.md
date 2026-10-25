@@ -46,7 +46,7 @@ PRs that only change GitHub settings or documentation are tested on GitHub inste
 
 Give your verdict to Claude in the chat:
 
-**Everything works:** say so (e.g. "looks good, merge it"). Claude then ticks **Tested by Andy** in the PR, waits for the checks to pass, merges, and the linked issue closes automatically.
+**Everything works:** say so (e.g. "looks good, merge it"). Claude then ticks **Tested** in the PR, waits for the checks to pass, merges, and the linked issue closes automatically.
 
 **Something is wrong:** describe what you did, what happened, and what you expected – a screenshot helps. Claude fixes it on the same branch, and you test again.
 
