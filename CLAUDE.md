@@ -7,6 +7,17 @@ A real-time strategy browser game where ninjas fight dragons, built by Andy toge
 1. [docs/game-design.md](docs/game-design.md) – the game design: story, factions, economy, map, balance principles.
 2. [docs/roadmap.md](docs/roadmap.md) – version scope and milestone overview, linking to GitHub.
 3. [CREDITS.md](CREDITS.md) – sources and licenses for all third-party assets and libraries. Update it whenever an asset or shipped library is added.
+4. [docs/assets.md](docs/assets.md) – asset inventory, known gaps and the intake procedure (approval, safety checks, conversion, credits). Follow it for every new model, font or sound.
+5. [docs/testing.md](docs/testing.md) – how Andy tests a pull request.
+
+## Sessions – one session = one issue
+
+1. **Each Claude session works on exactly one issue.** Andy starts a session by naming the issue (e.g. "work on #3").
+2. **Start of a session:** read this file, then the issue body and **all** its comments, then the docs the issue links to. The issue is the spec; do not rely on memory of earlier sessions.
+3. **Plan first:** present a short plan in Swedish and get Andy's approval before writing code (milestone-sized issues are first broken down into smaller issues, one per session).
+4. **Log decisions on the issue** as they are made (comment, and update the issue body's *Decisions* section if it changes the spec). Anything a future session would need to know belongs on the issue, not only in the chat.
+5. **Stay in scope.** Work that belongs to another issue goes there (as a comment), and new work becomes a new issue on the board.
+6. **End of a session:** the PR is open with a preview link, the issue checklist and comments are up to date, and the Status is **Testing** – or, if the session stops early, a comment on the issue says exactly where the work stands and what is left.
 
 ## Tech stack and commands
 
