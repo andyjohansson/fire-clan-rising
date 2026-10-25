@@ -58,6 +58,8 @@ Each faction gathers its **own resources**, but both factions also compete for a
 | Gold     | Dragons     | Treasure hoarded in the caves |
 | Magic crystals | Both  | Strongest units (both factions); magic shield around the Dragon King Egg (dragons) |
 
+**Egg shield:** The dragons can spend magic crystals to put a shield around the Dragon King Egg. The shield blocks the ninjas from taking the egg until they break it by attacking it for long enough.
+
 ## 6. Game Modes
 
 1. **Single player vs. computer** – first priority. Requires a computer opponent (AI) for both factions.
@@ -79,7 +81,7 @@ Each faction gathers its **own resources**, but both factions also compete for a
 ## 9. Open Questions
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
-2. How gold benefits the dragons, and how the egg shield works (duration, cost, how ninjas break it).
+2. How gold benefits the dragons, and egg shield details (crystal cost, strength, whether it can be recast).
 3. Ninja unit types.
 4. Dragon types beyond fire and ice, and what makes each one different.
 5. Ninja buildings and dragon structures (caves, nests, etc.).
