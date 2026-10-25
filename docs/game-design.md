@@ -1,0 +1,62 @@
+# Fire Clan Rising – Game Design Document
+
+> Status: Early draft. Designed together by Andy and Benjamin.
+
+## 1. Overview
+
+Fire Clan Rising is a real-time strategy (RTS) game where ninjas and dragons fight each other. The feel is inspired by classics like StarCraft, Red Alert and Command & Conquer.
+
+The player chooses to play as either the **Ninjas** or the **Dragons**. The two factions are deliberately asymmetric: the ninjas are the attackers and infiltrators, the dragons are the defenders.
+
+## 2. Story – "The Last Egg"
+
+1. The great Dragon King is dead. All that remains of him is the **Dragon King Egg**.
+2. To the dragons, the egg is everything – the next Dragon King will hatch from it.
+3. An evil **Ninja Lord** wants the egg, believing it will let him control all dragons.
+4. **Playing as the dragons**, you fight to save your people's future.
+5. **Playing as the ninjas**, you follow the Ninja Lord's orders. This opens up a possible twist later on: perhaps some ninjas begin to doubt whether he is right.
+
+## 3. Win Conditions
+
+| Faction | Wins by |
+|---------|---------|
+| Ninjas  | Stealing the Dragon King Egg and carrying it back to their base |
+| Dragons | Killing all ninjas |
+
+Secondary objective for the ninjas: destroying regular dragon eggs to prevent the dragons from growing in numbers.
+
+## 4. Factions
+
+### 4.1 Ninjas
+
+1. Build bases, in the classic RTS style.
+2. Train different types of ninjas in their base (unit types to be designed).
+3. Goal: infiltrate the dragon territory and steal the Dragon King Egg.
+
+### 4.2 Dragons
+
+1. Build bases in their own way – caves, and nests high up on mountains.
+2. Have **male and female dragons**. Only females can lay eggs, and they need a nest to do it.
+3. Eggs hatch into **dragon babies**, which grow up into **adult dragons**.
+4. Come in different elemental types, e.g. **fire** and **ice** (more to be designed).
+5. Attack by breathing fire (or other elements) and tearing down ninja structures.
+
+### 4.3 Core tension
+
+The eggs are both what the dragons must protect **and** how they grow their army. Every egg the ninjas destroy is a dragon that will never be born.
+
+## 5. Game Modes
+
+1. **Single player vs. computer** – first priority. Requires a computer opponent (AI) for both factions.
+2. **Multiplayer** – planned for later.
+
+## 6. Open Questions
+
+1. Visual style: top-down 2D, isometric 2D, or 3D?
+2. Technology / game engine.
+3. Resources and economy – what do the factions gather and spend?
+4. Ninja unit types.
+5. Dragon types beyond fire and ice, and what makes each one different.
+6. Ninja buildings and dragon structures (caves, nests, etc.).
+7. How dragon breeding works in practice (pairing, egg timers, growth time).
+8. Maps and terrain – mountains, height and flying.
