@@ -49,8 +49,21 @@ Secondary objective for the ninjas: destroying regular dragon eggs to prevent th
 1. Build bases in their own way – caves, and nests high up on mountains.
 2. Have **male and female dragons**. Only females can lay eggs, and they need a nest to do it.
 3. Eggs hatch into **dragon babies**, which grow up into **adult dragons**.
-4. Come in different elemental types, e.g. **fire** and **ice** (more to be designed).
-5. Attack by breathing fire (or other elements) and tearing down ninja structures.
+4. **Dragon babies are the workers** – they gather wood, stone and meat, and build caves and nests until they grow up.
+5. Come in different types (see dragon types below).
+6. Attack by breathing fire (or other elements) and tearing down ninja structures.
+
+#### Dragon types
+
+| Dragon | Role |
+|--------|------|
+| Fire Dragon | Breathes fire and sets ninja buildings ablaze |
+| Ice Dragon | Freezes ninjas in place for a while |
+| Lightning Dragon | Shoots lightning that chains between several ninjas |
+| Stone Dragon | Slow but extremely tough. Cannot fly – guards the egg like a wall |
+| Poison Dragon | Breathes a poison cloud that damages every ninja passing through |
+| Shadow Dragon | Can see invisible Shadow Ninjas – the dragons' counter-move |
+| Giant Dragon | The strongest dragon – costs magic crystals. Counterpart to the Master Ninja |
 
 ### 4.3 Core tension
 
@@ -93,7 +106,7 @@ Each faction gathers its **own resources**, but both factions also compete for *
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
-3. Dragon types beyond fire and ice, and what makes each one different.
+3. Which dragon types can be male/female, and how a baby's type is decided.
 4. Ninja buildings and dragon structures (caves, nests, etc.).
 5. How dragon breeding works in practice (pairing, egg timers, growth time).
 6. Maps and terrain – mountains, height and flying.
