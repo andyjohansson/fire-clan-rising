@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { GTAOPass } from 'three/examples/jsm/postprocessing/GTAOPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
+import { AlphaAwareGTAOPass } from './AlphaAwareGTAOPass';
 import { Mood } from './moods';
 
 // Saturation and vignette, applied in linear colour before tone mapping
@@ -39,14 +39,14 @@ const GradeShader = {
 // Renders the scene through ambient occlusion and colour grading, then tone maps to the screen
 export class PostProcessing {
 	private readonly composer: EffectComposer;
-	private readonly aoPass: GTAOPass;
+	private readonly aoPass: AlphaAwareGTAOPass;
 	private readonly gradePass: ShaderPass;
 
 	constructor(private readonly renderer: THREE.WebGLRenderer, scene: THREE.Scene, camera: THREE.Camera) {
 		this.composer = new EffectComposer(renderer);
 		this.composer.addPass(new RenderPass(scene, camera));
 
-		this.aoPass = new GTAOPass(scene, camera);
+		this.aoPass = new AlphaAwareGTAOPass(scene, camera);
 		// Radius in world units: wide enough to darken the ground under trees and units
 		this.aoPass.updateGtaoMaterial({ radius: 2.5, distanceExponent: 1.5, thickness: 3, scale: 1.2, samples: 16 });
 		this.aoPass.updatePdMaterial({ lumaPhi: 10, depthPhi: 2, normalPhi: 3, radius: 6, rings: 2, samples: 16 });

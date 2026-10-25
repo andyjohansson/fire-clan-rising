@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { setFoliageMood } from './foliage';
 import { Mood } from './moods';
 import { SkyDome } from './SkyDome';
 
@@ -67,6 +68,7 @@ export class Atmosphere {
 		this.hemisphere.intensity = mood.hemisphere.intensity;
 		this.fog.color.set(mood.sky.horizon);
 		this.sky.setMood(mood, this.sunDirection);
+		setFoliageMood(mood, this.sunDirection);
 
 		// Light-space axes, used to snap the shadow camera to whole shadow-map texels
 		this.lightForward.copy(this.sunDirection).negate();

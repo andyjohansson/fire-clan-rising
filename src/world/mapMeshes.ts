@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { AssetLoader } from '../assets/AssetLoader';
 import { AssetKey } from '../assets/registry';
+import { prepareFoliage } from '../render/foliage';
 import { createRandom } from '../utils/math';
 import { GameMap, Tree, TreeKind } from './GameMap';
 import {
@@ -154,6 +155,7 @@ function createTrees(map: GameMap, assets: AssetLoader): THREE.InstancedMesh[] {
 
 	for (const { key, variant, trees } of groups.values()) {
 		for (const part of assets.meshParts(key, variant)) {
+			for (const material of [part.material].flat()) prepareFoliage(material);
 			const mesh = new THREE.InstancedMesh(part.geometry, part.material, trees.length);
 			trees.forEach((tree, index) => {
 				rotation.setFromAxisAngle(up, tree.rotation);

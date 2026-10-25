@@ -27,6 +27,17 @@ export interface Mood {
 		near: number;
 		far: number;
 	};
+	// Extra shading for tree crowns (see foliage.ts)
+	foliage: {
+		// Colour multiplier, to set trees apart from the grass
+		tint: number;
+		// Strength of the sunlit rim on crown silhouettes
+		rim: number;
+		// Brightness difference between crown top and underside, 0-1
+		gradient: number;
+		// Brightness difference between individual trees, 0-1
+		variation: number;
+	};
 	exposure: number;
 	// 1 = unchanged, below 1 = washed out
 	saturation: number;
@@ -57,6 +68,12 @@ export const GLOOMY: Mood = {
 		near: 0.8,
 		far: 2.4,
 	},
+	foliage: {
+		tint: 0xd8f0e8,
+		rim: 0.9,
+		gradient: 0.45,
+		variation: 0.15,
+	},
 	exposure: 0.9,
 	saturation: 0.7,
 	vignette: 0.45,
@@ -84,6 +101,12 @@ export const SUNNY: Mood = {
 	haze: {
 		near: 1.4,
 		far: 4.0,
+	},
+	foliage: {
+		tint: 0xffffff,
+		rim: 0.5,
+		gradient: 0.35,
+		variation: 0.12,
 	},
 	exposure: 1.0,
 	saturation: 1.1,
