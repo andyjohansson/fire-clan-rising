@@ -1,0 +1,43 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+	overflow: hidden;
+	background: #9fd3f0;
+	font-family: system-ui, sans-serif;
+	user-select: none;
+}
+
+#game canvas {
+	display: block;
+}
+
+#selection-box {
+	position: fixed;
+	display: none;
+	border: 1px solid #5dff7a;
+	background: rgba(93, 255, 122, 0.15);
+	pointer-events: none;
+}
+
+#hud {
+	position: fixed;
+	top: 12px;
+	left: 12px;
+	padding: 8px 12px;
+	border-radius: 6px;
+	background: rgba(20, 20, 30, 0.6);
+	color: #fff;
+	pointer-events: none;
+}
+
+#hud h1 {
+	margin: 0 0 4px;
+	font-size: 16px;
+}
+
+#hud p {
+	margin: 2px 0;
+	font-size: 12px;
+	opacity: 0.85;
+}

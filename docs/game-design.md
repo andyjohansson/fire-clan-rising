@@ -169,7 +169,7 @@ Guidelines for keeping the game fair, based on a design review:
 
 ## 9. Development Scope
 
-The full design is large (6 ninja types, 7 dragon types, 8 ninja buildings, 13 dragon structures). The first playable version should include only a small subset – **2–3 units per side** – and grow step by step from there.
+The full design is large (6 ninja types, 7 dragon types, 8 ninja buildings, 13 dragon structures). The first playable version should include only a small subset – **2–3 units per side** – and grow step by step from there. See [roadmap.md](roadmap.md) for the plan.
 
 ## 10. Visual Style
 
@@ -181,14 +181,13 @@ The full design is large (6 ninja types, 7 dragon types, 8 ninja buildings, 13 d
 ## 11. Technology
 
 1. **Browser game** built with **[Three.js](https://threejs.org/)** for 3D rendering.
-2. Runs directly in the web browser – no installation needed, and easy to share with a link.
-3. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
+2. Written in **TypeScript**, with **[Vite](https://vite.dev/)** as dev server and build tool.
+3. Runs directly in the web browser – no installation needed, and easy to share with a link.
+4. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
 
 ## 12. Open Questions
 
-1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
-2. Egg timer length (around 20 minutes as a starting point).
-3. Egg shield details (crystal cost, strength, whether it can be recast).
-4. Exact costs for each nest type and ninja type (balanced through playtesting).
-5. Breeding timings (egg laying, hatching, growth and reserve egg times – balanced through playtesting).
-6. Which units and buildings go into the first playable version.
+1. Egg timer length (around 20 minutes as a starting point).
+2. Egg shield details (crystal cost, strength, whether it can be recast).
+3. Exact costs for each nest type and ninja type (balanced through playtesting).
+4. Breeding timings (egg laying, hatching, growth and reserve egg times – balanced through playtesting).
