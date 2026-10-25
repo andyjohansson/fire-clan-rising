@@ -20,17 +20,20 @@ The detailed backlog lives on GitHub:
 1. **Kanban board:** [Fire Clan Rising project](https://github.com/users/andyjohansson/projects/1)
 2. **Milestones and progress:** [GitHub milestones](https://github.com/andyjohansson/fire-clan-rising/milestones)
 
+The order is chosen so the core game (combat and the egg) becomes playable as early as possible, with fixed starting armies. Economy and building are added once that core is fun.
+
 | Milestone | Summary |
 |-----------|---------|
 | 1. Foundation (done) | Project setup, 3D map, camera, selecting and moving units with the mouse |
-| [1b. Visuals and map](https://github.com/andyjohansson/fire-clan-rising/milestone/1) | CC0 models and asset registry, lighting, 256×256 terrain with a richer layout, water, fog of war, minimap, animated ninjas |
+| [1b. Visuals and map](https://github.com/andyjohansson/fire-clan-rising/milestone/1) | Asset registry and loading screen (done), then in order: preview links for PRs, FPS meter, lighting and atmosphere, 256×256 terrain, map layout, water, animated ninjas, fog of war, minimap, game language |
 | [2. Combat](https://github.com/andyjohansson/fire-clan-rising/milestone/2) | Units attack and damage each other |
-| [3. Economy and building](https://github.com/andyjohansson/fire-clan-rising/milestone/3) | Gathering resources, constructing buildings, training units |
-| [4. The egg](https://github.com/andyjohansson/fire-clan-rising/milestone/4) | Carrying and dropping the egg, the egg timer, winning and losing |
-| [5. Dragon AI](https://github.com/andyjohansson/fire-clan-rising/milestone/5) | The computer controls the dragons |
+| [3. The egg](https://github.com/andyjohansson/fire-clan-rising/milestone/4) | Carrying and dropping the egg, the egg timer, winning and losing – with fixed starting armies |
+| [4. Dragon AI](https://github.com/andyjohansson/fire-clan-rising/milestone/5) | The computer controls the dragons: defending the egg and counter-attacking |
+| [5. Economy and building](https://github.com/andyjohansson/fire-clan-rising/milestone/3) | Gathering resources, constructing buildings, training units; the dragon AI learns to use the economy |
 
 ## Later versions
 
 1. Dragons as a playable faction, plus a Ninja AI.
 2. The remaining units, buildings and resources from the design document.
-3. Multiplayer.
+3. [Sound and music](https://github.com/andyjohansson/fire-clan-rising/issues/22).
+4. Multiplayer.
