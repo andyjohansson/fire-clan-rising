@@ -45,9 +45,11 @@ Typed in the browser console (Chrome: `Cmd+Option+J`, Safari: `Cmd+Option+C`) on
 | Command | What it does |
 |---------|--------------|
 | `fcr.fps()` | Shows or hides the performance meter in the top-right corner: FPS compared with the display's refresh rate (e.g. `50 / 50 Hz smooth`), frame time with the worst frame, draw calls and triangles. Off by default. |
+| `fcr.ao()` | Turns ambient occlusion (soft darkening where objects meet, e.g. under trees) on or off, for a before/after comparison. On by default. |
+| `fcr.mood()` | Switches the lighting mood: **gloomy** (default, overcast Lord of the Rings feel) or **sunny** (bright daytime). |
+| `fcr.help()` | Lists all developer commands. |
 
 The browser never draws faster than the display refreshes, so the display's rate (often 60 Hz, sometimes 50, 120 or 144 Hz) is the best possible FPS. The meter rates FPS against it: green **smooth** at 90 % or more, yellow **ok** at 50–90 %, red **slow** below 50 %.
-| `fcr.help()` | Lists all developer commands. |
 
 ## 4. Approve or report
 

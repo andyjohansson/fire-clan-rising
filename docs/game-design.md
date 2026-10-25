@@ -192,6 +192,8 @@ The full design is large (6 ninja types, 7 dragon types, 8 ninja buildings, 13 d
 4. **Asset registry** – every game object (e.g. "Sword Ninja", "pine tree") points to a model file through one registry, so the art style can be swapped later without rewriting game code.
 5. **Textured terrain** blending grass, dirt, rock and sand by slope and height, with visible paths.
 6. **Lighting and atmosphere** – filmic tone mapping, soft shadows, ambient occlusion, sky gradient and distance haze.
+	1. The default mood is **dark and gloomy**, inspired by The Lord of the Rings: overcast sky, a low pale sun, cold haze and slightly muted colours. The world stays readable – units and buildings must always stand out.
+	2. Lighting is built as **mood presets** (sky, sun, ambient light, haze, colour grading). A bright **sunny day** preset exists alongside the gloomy default, and more moods (dusk, night, the dragons' volcanic glow) can be added later.
 7. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
 
 ## 11. Technology

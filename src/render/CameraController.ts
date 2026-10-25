@@ -41,6 +41,11 @@ export class CameraController {
 		this.applyTransform();
 	}
 
+	// Distance from the camera to the point it looks at
+	get zoomDistance(): number {
+		return this.distance;
+	}
+
 	resize(width: number, height: number): void {
 		this.camera.aspect = width / height;
 		this.camera.updateProjectionMatrix();

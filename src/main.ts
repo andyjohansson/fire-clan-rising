@@ -18,7 +18,11 @@ assets.loadAll((loaded, total) => loadingScreen.setProgress(loaded, total))
 		await game.prepare();
 		await loadingScreen.finish();
 		game.start();
-		installDevCommands({ toggleFps: () => fpsMeter.toggle() });
+		installDevCommands({
+			toggleFps: () => fpsMeter.toggle(),
+			toggleAmbientOcclusion: () => game.toggleAmbientOcclusion(),
+			nextMood: () => game.nextMood(),
+		});
 	})
 	.catch((error) => {
 		loadingScreen.showError('Could not load the game models. See the console for details.');

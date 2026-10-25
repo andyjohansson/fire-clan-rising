@@ -1,6 +1,9 @@
 import * as THREE from 'three';
 import { CameraController } from '../render/CameraController';
-import { createRenderer, createScene } from '../render/createScene';
+import { Atmosphere } from '../render/Atmosphere';
+import { createRenderer } from '../render/createScene';
+import { GLOOMY, MOODS } from '../render/moods';
+import { PostProcessing } from '../render/PostProcessing';
 import { SelectionController } from '../input/SelectionController';
 import { Unit } from '../units/Unit';
 import { createNinjaModel } from '../units/ninjaModel';
@@ -18,6 +21,8 @@ export class Game {
 	private readonly renderer: THREE.WebGLRenderer;
 	private readonly scene: THREE.Scene;
 	private readonly cameraController: CameraController;
+	private readonly atmosphere: Atmosphere;
+	private readonly postProcessing: PostProcessing;
 	private readonly map = new GameMap();
 	private readonly units: Unit[] = [];
 	private readonly moveMarker: THREE.Mesh;
@@ -31,8 +36,11 @@ export class Game {
 		private readonly fpsMeter: FpsMeter,
 	) {
 		this.renderer = createRenderer(container);
-		this.scene = createScene(this.map.size);
+		this.scene = new THREE.Scene();
 		this.cameraController = new CameraController(this.renderer.domElement, this.map.size, NINJA_VALLEY);
+		this.atmosphere = new Atmosphere(this.scene, GLOOMY);
+		this.postProcessing = new PostProcessing(this.renderer, this.scene, this.cameraController.camera);
+		this.postProcessing.setMood(GLOOMY);
 
 		const mapMeshes = createMapMeshes(this.map, assets);
 		this.scene.add(mapMeshes.group);
@@ -69,13 +77,29 @@ export class Game {
 	// Compiles all shaders and draws a first frame, so the game appears instantly when started
 	async prepare(): Promise<void> {
 		const camera = this.cameraController.camera;
+		this.atmosphere.update(camera, this.cameraController.zoomDistance);
 		await this.renderer.compileAsync(this.scene, camera);
-		this.renderer.render(this.scene, camera);
+		this.render();
 	}
 
 	start(): void {
 		this.lastTime = performance.now();
 		this.renderer.setAnimationLoop(() => this.tick());
+	}
+
+	// Switches to the next lighting mood and returns its name
+	nextMood(): string {
+		const index = MOODS.indexOf(this.atmosphere.currentMood);
+		const mood = MOODS[(index + 1) % MOODS.length];
+		this.atmosphere.setMood(mood);
+		this.postProcessing.setMood(mood);
+		return mood.name;
+	}
+
+	// Turns ambient occlusion on or off and returns the new state
+	toggleAmbientOcclusion(): boolean {
+		this.postProcessing.aoEnabled = !this.postProcessing.aoEnabled;
+		return this.postProcessing.aoEnabled;
 	}
 
 	private addUnit(unit: Unit): void {
@@ -165,9 +189,15 @@ export class Game {
 		for (const unit of this.units) unit.update(dt);
 		this.separateUnits();
 		this.updateMoveMarker(dt);
+		this.atmosphere.update(this.cameraController.camera, this.cameraController.zoomDistance);
 
-		this.renderer.render(this.scene, this.cameraController.camera);
+		this.render();
 		this.fpsMeter.update(this.renderer.info);
+	}
+
+	private render(): void {
+		this.renderer.info.reset();
+		this.postProcessing.render();
 	}
 
 	private updateMoveMarker(dt: number): void {
@@ -184,6 +214,7 @@ export class Game {
 		const width = window.innerWidth;
 		const height = window.innerHeight;
 		this.renderer.setSize(width, height);
+		this.postProcessing.setSize(width, height);
 		this.cameraController.resize(width, height);
 	}
 }
