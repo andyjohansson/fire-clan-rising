@@ -1,33 +1,29 @@
 # Testing a pull request
 
-Every pull request is tested and approved by Andy before Claude merges it. Normally Claude prepares everything (switches the branch, starts the game, opens it) and gives you a short checklist in the chat – this guide is the manual fallback. Each PR also has a **How to test** section with the exact steps for that change.
+Every pull request is tested and approved by Andy before Claude merges it. Normally Claude gives you the preview link and a short checklist in the chat – this guide explains the details. Each PR also has a **How to test** section with the exact steps for that change.
 
-## 1. Get the branch
+## 1. Open the game
 
-In the terminal, in the project folder:
+**The easy way – the preview link:** every pull request is built automatically and gets its own link, posted as a comment on the PR (and given to you by Claude in the chat), e.g.
+
+`https://andyjohansson.github.io/fire-clan-rising/pr-preview/pr-25/`
+
+Click it – nothing to install, and it also works on a phone or tablet (the controls still need a mouse). The preview updates with every new commit on the PR and is removed when the PR is closed.
+
+**The latest dev version** is always at [andyjohansson.github.io/fire-clan-rising](https://andyjohansson.github.io/fire-clan-rising/) – a good bookmark for Benjamin.
+
+## 2. Locally (fallback)
+
+Only needed if the preview is not available. In the terminal, in the project folder:
 
 ```bash
 git fetch
 git switch <branch-name>
-```
-
-The branch name is shown at the top of the PR, e.g. `feature/issue-1-asset-registry`.
-
-If the PR changes `package.json` (new libraries), also run:
-
-```bash
 npm install
-```
-
-## 2. Start the game
-
-If the dev server is not already running:
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173). If the server was already running, the page reloads by itself after `git switch` – otherwise refresh the browser.
+Then open [http://localhost:5173](http://localhost:5173). The branch name is shown at the top of the PR.
 
 ## 3. Test
 
@@ -50,6 +46,6 @@ Give your verdict to Claude in the chat:
 
 **Something is wrong:** describe what you did, what happened, and what you expected – a screenshot helps. Claude fixes it on the same branch, and you test again.
 
-## 5. Back to dev
+## 5. After merging
 
-After merging, Claude switches your local copy back to the latest `dev`.
+The change is published to the dev site within a few minutes, and Claude switches your local copy back to the latest `dev`.
