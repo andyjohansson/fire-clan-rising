@@ -124,28 +124,38 @@ Each faction gathers its **own resources**, but both factions also compete for *
 
 **Egg shield:** The dragons can spend magic crystals to put a shield around the Dragon King Egg. The shield blocks the ninjas from taking the egg until they break it by attacking it for long enough.
 
-## 6. Game Modes
+## 6. Map
+
+The first map, with the bases in opposite corners:
+
+1. **Dragon Mountain** – in one corner, high up. The Dragon King's Cave sits on the summit, reachable only by a few narrow paths, so ninjas must fight their way up them or climb.
+2. **Ninja Valley** – in the opposite corner. Flat, with plenty of room to build.
+3. **Forest** – in the middle, with wood and animals to hunt.
+4. **Stone quarries** – scattered across the map.
+5. **Crystal fields** – halfway between the bases, so both factions must fight over them.
+6. **River** – crossed by a few bridges and fords. Dragons can fly over it, but ninjas must use the crossings, creating natural battle points.
+
+## 7. Game Modes
 
 1. **Single player vs. computer** – first priority. Requires a computer opponent (AI) for both factions.
 2. **Multiplayer** – planned for later.
 
-## 7. Visual Style
+## 8. Visual Style
 
 1. **3D world with a fixed camera** at an oblique angle from above. It looks like a classic isometric RTS, but is real 3D under the hood.
 2. **Simple shapes (low-poly)** – units and buildings are built in code from basic primitives (spheres, cones, boxes). No hand-drawn sprites needed.
 3. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
 4. Possible later upgrades: a rotatable camera, and swapping in nicer models (e.g. free low-poly asset packs).
 
-## 8. Technology
+## 9. Technology
 
 1. **Browser game** built with **[Three.js](https://threejs.org/)** for 3D rendering.
 2. Runs directly in the web browser – no installation needed, and easy to share with a link.
 3. All game content (units, buildings, maps) is defined in code, matching the simple low-poly style.
 
-## 9. Open Questions
+## 10. Open Questions
 
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
 3. Exact costs for each nest type and ninja type (balanced through playtesting).
 4. Breeding timings (egg laying, hatching and growth times – balanced through playtesting).
-5. Maps and terrain – mountains, height and flying.
