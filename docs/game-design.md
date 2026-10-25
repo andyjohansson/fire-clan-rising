@@ -50,13 +50,19 @@ The eggs are both what the dragons must protect **and** how they grow their army
 1. **Single player vs. computer** – first priority. Requires a computer opponent (AI) for both factions.
 2. **Multiplayer** – planned for later.
 
-## 6. Open Questions
+## 6. Visual Style
 
-1. Visual style: top-down 2D, isometric 2D, or 3D?
-2. Technology / game engine.
-3. Resources and economy – what do the factions gather and spend?
-4. Ninja unit types.
-5. Dragon types beyond fire and ice, and what makes each one different.
-6. Ninja buildings and dragon structures (caves, nests, etc.).
-7. How dragon breeding works in practice (pairing, egg timers, growth time).
-8. Maps and terrain – mountains, height and flying.
+1. **3D world with a fixed camera** at an oblique angle from above. It looks like a classic isometric RTS, but is real 3D under the hood.
+2. **Simple shapes (low-poly)** – units and buildings are built in code from basic primitives (spheres, cones, boxes). No hand-drawn sprites needed.
+3. Height matters: mountains, cliffs and flying dragons are shown naturally in 3D.
+4. Possible later upgrades: a rotatable camera, and swapping in nicer models (e.g. free low-poly asset packs).
+
+## 7. Open Questions
+
+1. Technology / game engine.
+2. Resources and economy – what do the factions gather and spend?
+3. Ninja unit types.
+4. Dragon types beyond fire and ice, and what makes each one different.
+5. Ninja buildings and dragon structures (caves, nests, etc.).
+6. How dragon breeding works in practice (pairing, egg timers, growth time).
+7. Maps and terrain – mountains, height and flying.
