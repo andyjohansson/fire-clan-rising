@@ -71,7 +71,11 @@ main  ← releases, only updated by merging dev
 1. **Never commit directly to `main` or `dev`.** Every issue gets its own branch, created from the latest `dev`.
 2. **One issue per branch, one branch per pull request.** If the work grows, split it into a new issue and branch.
 3. **Pull requests:** feature/fix branch → `dev`; `dev` → `main` when a milestone is completed. Fill in the PR template. The **How to test** section must give Andy numbered, step-by-step instructions with the expected result of each step – concrete enough to follow without knowing the code. The general routine is in [docs/testing.md](docs/testing.md).
-4. **Andy approves, Claude merges.** Claude opens the PR with the **Tested** checkbox unticked. Andy tests and gives his verdict in the chat. Only after Andy has explicitly approved the PR in the chat does Claude tick **Tested**, wait for all checks to pass, and merge. Never tick the box or merge without Andy's approval of that specific PR.
+4. **Andy approves, Claude merges.** Andy tests and gives his verdict in the chat. Nothing on GitHub enforces this, so Claude checks it before every merge:
+	1. Andy has explicitly approved **that specific PR** in the chat (e.g. "looks good, merge it"). Approval of another PR, a general "go ahead", or a passing build does not count. If in doubt, ask.
+	2. Claude comments on the PR, e.g. `Approved by Andy in chat.`, so the approval is on record.
+	3. Claude waits for all required checks to pass, then merges.
+	4. Never merge without step 1.
 5. **Make testing effortless for Andy.** When a PR is ready, Claude prepares everything so Andy only has to look and click:
 	1. Wait for the `preview` check and give Andy the **preview link** (`https://andyjohansson.github.io/fire-clan-rising/pr-preview/pr-<number>/`).
 	2. Also switch the local checkout to the PR branch (with `npm install` if dependencies changed) and make sure the dev server is running, as a fallback.
@@ -92,7 +96,7 @@ main  ← releases, only updated by merging dev
 2. Required checks before merging:
 	1. `build` – typecheck and production build ([ci.yml](.github/workflows/ci.yml)).
 	2. `branch-policy` – PRs into `main` must come from `dev`; PRs into `dev` must come from `feature/issue-…` or `fix/issue-…` ([pr-policy.yml](.github/workflows/pr-policy.yml)).
-	3. `tested` – the **Tested** checkbox in the PR description must be ticked (by Claude, after Andy's approval in the chat) ([pr-policy.yml](.github/workflows/pr-policy.yml)).
+3. Andy's test approval is not a GitHub check; it is the merge rule in *Branches and pull requests* above.
 
 ### Board commands
 

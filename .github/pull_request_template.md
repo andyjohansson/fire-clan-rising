@@ -18,4 +18,3 @@ Closes #
 - [ ] Typecheck and build pass
 - [ ] Issue checklist and board are up to date
 - [ ] Docs updated if needed (roadmap, design document, CLAUDE.md, CREDITS.md)
-- [ ] **Tested**

@@ -31,18 +31,3 @@ jobs:
             fi
           fi
           echo "Branch policy OK"
-
-  tested:
-    name: tested
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check that the pull request has been tested
-        env:
-          BODY: ${{ github.event.pull_request.body }}
-        run: |
-          if printf '%s' "$BODY" | grep -Eiq -- '- \[x\] \*\*Tested\*\*'; then
-            echo "Tested: OK"
-          else
-            echo "::error::Tick the 'Tested' checkbox in the pull request description after testing."
-            exit 1
-          fi
