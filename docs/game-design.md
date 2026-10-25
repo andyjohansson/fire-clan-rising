@@ -84,6 +84,19 @@ Each ninja type is trained in its own building, mirroring how each dragon type h
 
 **Cost tiers:** Better nests cost more resources to build. A fire or ice nest is cheap, while a Giant Dragon nest is the most expensive.
 
+#### Dragon structures
+
+In addition to one nest per dragon type, the dragons have these structures:
+
+| Structure | Purpose |
+|-----------|---------|
+| Dragon King's Cave | Main base, high up on a mountain. Holds the Dragon King Egg and the gold hoard, and receives gathered resources |
+| Hunting Ground | Where dragon babies hunt for meat – placed out in the forest |
+| Treasure Chamber | Buys upgrades with gold (hotter fire, tougher scales, faster wings) |
+| Crystal Altar | Spends magic crystals on the egg shield |
+| Nursery Cave | Where dragon babies grow up into adults. More caves let more babies grow up at the same time |
+| Lookout Cliff | Adult dragons perch here to spot ninjas from far away, including sneaking Shadow Ninjas |
+
 ### 4.3 Core tension
 
 The eggs are both what the dragons must protect **and** how they grow their army. Every egg the ninjas destroy is a dragon that will never be born.
@@ -126,6 +139,5 @@ Each faction gathers its **own resources**, but both factions also compete for *
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
 3. Exact costs for each nest type and ninja type (balanced through playtesting).
-4. Dragon structures beyond nests (main cave, etc.).
-5. How dragon breeding works in practice (pairing, egg timers, growth time).
-6. Maps and terrain – mountains, height and flying.
+4. How dragon breeding works in practice (pairing, egg timers, growth time).
+5. Maps and terrain – mountains, height and flying.
