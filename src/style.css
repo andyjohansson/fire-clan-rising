@@ -61,7 +61,8 @@ body {
 	opacity: 0.7;
 }
 
-#fps-value {
+#fps-value,
+#fps-rating {
 	font-weight: bold;
 }
 
