@@ -97,6 +97,14 @@ In addition to one nest per dragon type, the dragons have these structures:
 | Nursery Cave | Where dragon babies grow up into adults. More caves let more babies grow up at the same time |
 | Lookout Cliff | Adult dragons perch here to spot ninjas from far away, including sneaking Shadow Ninjas |
 
+#### Breeding and growth
+
+1. A **female dragon sits in a nest**. If there is at least one male dragon in the colony, she lays an egg after a while. The mating itself is never shown.
+2. The egg **hatches after a while** into a dragon baby of the same type as the nest.
+3. The dragon baby **works** – gathering resources and building.
+4. When the player chooses, the baby is sent to a **Nursery Cave**. Growing up **costs meat**, and takes a short time during which the baby cannot work.
+5. This creates a constant strategic choice: *more workers now, or more warriors?*
+
 ### 4.3 Core tension
 
 The eggs are both what the dragons must protect **and** how they grow their army. Every egg the ninjas destroy is a dragon that will never be born.
@@ -110,7 +118,7 @@ Each faction gathers its **own resources**, but both factions also compete for *
 | Wood     | Both        | Buildings (ninja bases, dragon caves and nests) |
 | Stone    | Both        | Buildings (ninja bases, dragon caves and nests) |
 | Rice     | Ninjas      | Training ninjas |
-| Meat     | Dragons     | Raising dragon babies (hunted) |
+| Meat     | Dragons     | Growing dragon babies into adults in the Nursery Cave (hunted) |
 | Gold     | Dragons     | Hoarded in the caves: dragons near the hoard get stronger and heal faster; also buys upgrades (hotter fire, tougher scales, faster wings) |
 | Magic crystals | Both  | Strongest units (both factions); magic shield around the Dragon King Egg (dragons) |
 
@@ -139,5 +147,5 @@ Each faction gathers its **own resources**, but both factions also compete for *
 1. Project setup details (e.g. JavaScript vs. TypeScript, build tool).
 2. Egg shield details (crystal cost, strength, whether it can be recast).
 3. Exact costs for each nest type and ninja type (balanced through playtesting).
-4. How dragon breeding works in practice (pairing, egg timers, growth time).
+4. Breeding timings (egg laying, hatching and growth times – balanced through playtesting).
 5. Maps and terrain – mountains, height and flying.
