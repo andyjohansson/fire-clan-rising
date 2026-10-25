@@ -60,7 +60,15 @@ export class Game {
 		this.resize();
 	}
 
+	// Compiles all shaders and draws a first frame, so the game appears instantly when started
+	async prepare(): Promise<void> {
+		const camera = this.cameraController.camera;
+		await this.renderer.compileAsync(this.scene, camera);
+		this.renderer.render(this.scene, camera);
+	}
+
 	start(): void {
+		this.lastTime = performance.now();
 		this.renderer.setAnimationLoop(() => this.tick());
 	}
 

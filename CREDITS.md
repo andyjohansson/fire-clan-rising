@@ -15,6 +15,12 @@ All models are by **[Quaternius](https://quaternius.com)** and released under **
 
 The nature models were converted from glTF to GLB with [glTF Transform](https://gltf-transform.dev) (meshopt compression, WebP textures resized to max 1024 px). The models themselves are unchanged.
 
+## Fonts
+
+| Font | Source | License | Files |
+|------|--------|---------|-------|
+| Shojumaru by Astigmatic (Brian J. Bonislawsky) | [Google Fonts](https://fonts.google.com/specimen/Shojumaru) | [SIL Open Font License 1.1](public/assets/fonts/Shojumaru-OFL.txt) | `public/assets/fonts/Shojumaru-Regular.ttf` |
+
 ## Libraries shipped with the game
 
 | Library | License |
